@@ -3,6 +3,7 @@
 
 import React, { useState } from 'react';
 import { ToDoList } from './ToDoList';
+import { AddToDoForm } from './AddToDoForm';
 
 const initialTodos: Array<Todo> = [
   { text: "Estudiar TypeScript", complete: true },
@@ -25,9 +26,15 @@ const App: React.FC = () => {
     setTodos(newTodos);
   };
 
+  const addToDo: AddToDo = newTodo => {
+    newTodo.trim() !== "" &&
+      setTodos([...todos, { text: newTodo, complete: false }])
+  }
+
   return (
     <>
       <ToDoList todos={todos} toggleTodo={toggleTodo} />
+      <AddToDoForm addToDo={addToDo} />
     </>
   );
 }
