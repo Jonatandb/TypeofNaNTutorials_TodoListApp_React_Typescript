@@ -1,25 +1,20 @@
+// Creating a Todo List App in React using Typescript (Part 1)
+//    https://www.youtube.com/watch?v=ODvirqIC09A
+
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { ToDoListItem } from './ToDoListItem';
+
+const todos: Array<Todo> = [
+  { text: "Estudiar TypeScript", complete: true },
+  { text: "Dormir", complete: false },
+];
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ToDoListItem todo={todos[0]} />
+      <ToDoListItem todo={todos[1]} />
+    </>
   );
 }
 
